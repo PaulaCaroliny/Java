@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+        int qtde;
+        double[] notas;
+        double soma = 0, media;
+
+        System.out.print("Quantas notas serão digitadas?");
+        qtde = scan.nextInt();
+
+        if (qtde >=2) {
+            notas = new double[qtde];
+
+            for (int i = 0; i < notas.length; i++){
+                System.out.print("Digite a" + (i + 1) + "º nota: ");
+                notas[i] = scan.nextDouble();
+                //soma = soma + notas[i]
+                soma += notas[i];
+            }
+
+            media = soma / qtde;
+
+            System.out.println("Média Aritmética: " + media);
+
+        } else {
+            System.out.println("Erro! A quantidade deve ser >=2 notas");
+        }
+
+    }
+}
