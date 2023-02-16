@@ -1,0 +1,73 @@
+function iniciar () {
+
+var numeroSecreto =parseInt(Math.random() * 101);
+  
+var tentativas = 1;
+  
+var chances = 29;
+  
+var chute = prompt('Vamos jogar? \nTente adivinhar qual número estou pensando de 1 e 1000. \nVocê tem 30 tentativas para acertar.');
+
+while (chute != numeroSecreto) {
+  
+  if (chute > 1000) {
+    alert ('Só valem números entre 1 e 1000:');
+    chute = prompt('Tente outro número:');
+  } else if (chute < 1) {
+    alert ('Só valem números entre 1 e 1000:');
+    chute = prompt('Tente outro número:');
+  } else {
+      if (chute > numeroSecreto) {
+        if (tentativas < 3) {
+          alert ('Não. O número que estou pensando é menor do que ' + chute + '.');
+          tentativas += 1;
+          chances -= 1;
+          chute = prompt('Tente outro número:');
+        } else if (tentativas < 20) {
+          alert ('Erroooou. O número que estou pensando é menor do que ' + chute + '. \nVocê já chutou ' + tentativas + ' vezes.');
+          tentativas += 1;
+          chances -= 1;
+          chute = prompt('Tente outro número:');
+        } else {
+          alert ('ERROUUUUU. O número que estou pensando é menor do que ' + chute + '. \nVocê já chutou ' + tentativas + ' vezes. \nVocê só tem mais ' + chances + ' tentativas.');
+          tentativas += 1;
+          chances -= 1;
+          chute = prompt('Tente outro número:');
+        }
+     } else if (chute < numeroSecreto) {
+       if (tentativas < 3) {
+          alert ('Não. O número que estou pensando é maior do que ' + chute + '.');
+          tentativas += 1;
+          chances -= 1;
+          chute = prompt('Tente outro número:');
+        } else if (tentativas < 20) {
+          alert ('Errou. O número que estou pensando é maior do que ' + chute + '. \nVocê já chutou ' + tentativas + ' vezes.');
+          tentativas += 1;
+          chances -= 1;
+          chute = prompt('Tente outro número:');
+        } else {
+          alert ('Errou. O número que estou pensando é maior do que ' + chute + '. \nVocê já chutou ' + tentativas + ' vezes. \nVocê só tem mais ' + chances + ' tentativas.');
+          tentativas += 1;
+          chances -= 1;
+          chute = prompt('Tente outro número:');
+        }
+     }
+  }
+  
+  if (tentativas == 30) {
+    break;
+  }
+  
+}
+
+if (tentativas == 1){
+  alert ('Olha ele hummmmmm! \nVocê acertou na primeira tentativa! \nIsso é extraordinário!\nO número que eu estava pensando é '+ numeroSecreto +'.');
+} else if (tentativas == 30) {
+  alert ('Infelizmente  você ficou sem tentativas e perdeu! \nO número que eu estava pensando é ' + numeroSecreto + '.')
+} else if (tentativas > 15) {
+  alert ('Caraca foi quase! \nEssa foi difícil. Você acertou somente na ' + tentativas + 'ª tentativa! \nO número que eu estava pensando é '+ numeroSecreto +'.');
+} else if(tentativas < 15)  {
+  alert (" boa garoto! \nVocê acertou na ' + tentativas + 'ª tentativa! \nO número que eu estava pensando é '+ numeroSecreto +'.' ");
+}
+
+}
